@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent"
+    tools:context="com.example.azhar.lppm.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="25dp"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo_uin"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center"
+
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:textSize="45dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:text="LPPM"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="UIN SUSKA RIAU"/>
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:singleLine="true"
+                android:inputType="text"
+                android:id="@+id/etNip"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_form"
+                android:hint="Nip / E-mail" />
+        </android.support.design.widget.TextInputLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:singleLine="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:padding="16dp"
+                    android:inputType="textPassword"
+                    android:background="@drawable/bg_form"
+                    android:hint="Password" />
+
+            </android.support.design.widget.TextInputLayout>
+            <ImageView
+                android:id="@+id/imgShow"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:paddingTop="20dp"
+                android:src="@drawable/ic_remove_red_eye_black_24dp"
+                tools:ignore="VectorDrawableCompat"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/status"
+                android:text="show"
+                android:layout_alignParentRight="true"
+                android:visibility="invisible"
+                android:layout_below="@id/imgShow"
+                />
+        </RelativeLayout>
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:padding="15dp"
+            android:text="login"
+            android:theme="@style/buttonstyle3"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#fff"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lupa Password ?"
+            android:layout_marginTop="10dp"
+            android:id="@+id/lupaPassword"
+            android:textAlignment="center"/>
+    </LinearLayout>
+</RelativeLayout>
+

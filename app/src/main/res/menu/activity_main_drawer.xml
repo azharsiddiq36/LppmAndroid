@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_penelitian"
+            android:icon="@drawable/penelitian"
+            android:title="Surat Izin penelitian" />
+        <item
+            android:id="@+id/nav_pengabdian"
+            android:icon="@drawable/pengabdian"
+            android:title="Surat Izin Pengabdian" />
+        <item
+            android:id="@+id/nav_fgd"
+            android:icon="@drawable/fgd"
+            android:title="Surat FGD" />
+        <item
+            android:id="@+id/nav_perjalanan"
+            android:icon="@drawable/perjalanan"
+            android:title="Surat Izin Perjalanan" />
+        <item
+            android:id="@+id/nav_visiMisi"
+            android:icon="@drawable/visi"
+            android:title="Visi &amp; Misi" />
+        <item
+            android:icon="@drawable/pengajuan"
+            android:title="Daftar Pengajuan"
+            android:id="@+id/nav_pengajuan">
+
+        </item>
+        <item
+            android:id="@+id/nav_pengaturan"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Pengaturan" />
+
+    </group>
+
+</menu>

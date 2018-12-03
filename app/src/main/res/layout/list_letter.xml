@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:isScrollContainer="true"
+    android:id="@+id/letterLayout"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="72dp"
+        app:cardElevation="10dp"
+        android:id="@+id/cvLetter"
+        android:layout_margin="10dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/accept"
+            android:id="@+id/ivAccept"
+            android:visibility="invisible"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_vertical|right"/>
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_gravity="center_vertical|right"
+            android:layout_height="50dp"
+            android:layout_marginRight="5dp"
+            android:theme="@style/buttonstyle3"
+            android:background="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:scaleType="center"
+            android:id="@+id/tvAccept"
+            tools:ignore="VectorDrawableCompat" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/tvLetter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Surat Perjalanan Dinas"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvLetter"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:text="Status" />
+
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_access_time_black_24dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            tools:ignore="VectorDrawableCompat" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTanggal"
+            android:layout_gravity="bottom"
+            android:text="tanggal"
+            android:layout_marginLeft="35dp"
+            android:layout_marginBottom="7dp"
+            />
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
