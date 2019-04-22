@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.example.azhar.lppm.LoginActivity;
+import com.example.azhar.lppm.Activity.LoginActivity;
 
 import java.util.HashMap;
 
@@ -19,7 +19,7 @@ public class SessionManager {
     public static final String KEY_HAK_AKSES = "akses";
     public static final String KEY_TOKEN = "token";
     public static final String KEY_KONFIRMASI_EMAIL = "Y";
-    public static final String LOGGIN_STATUS = "logginstatus";
+    public static final String LOGGIN_STATUS = "sudahlogin";
     public static final String SHARE_NAME = "logginsession";
     private Context context;
     private final int MODE_PRIVATE = 0;

@@ -1,22 +1,22 @@
-package com.example.azhar.lppm;
+package com.example.azhar.lppm.Activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.azhar.lppm.Controller.SessionManager;
+import com.example.azhar.lppm.R;
 import com.example.azhar.lppm.Rest.CombineApi;
 import com.example.azhar.lppm.Rest.LppmInterface;
 
@@ -48,8 +48,8 @@ public class LoginActivity extends Activity {
     TextView lupaPassword;
     @BindView(R.id.status)
     TextView status;
-    @BindView(R.id.rootLayout)
-    RelativeLayout rootLayout;
+//    @BindView(R.id.rootLayout)
+//    RelativeLayout rootLayout;
     ProgressDialog loading;
     LppmInterface lppmInterface;
     //SharedPreferencfes sharedPreferences;
@@ -60,6 +60,11 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.login);
         ButterKnife.bind(this);
         sessionManager = new SessionManager(LoginActivity.this);
+        if(sessionManager.isLogin()){
+            startActivity(new Intent(LoginActivity.this, MainActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
         //Klik Lupa
         lupaPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -206,5 +211,15 @@ public class LoginActivity extends Activity {
             e1.printStackTrace();
         }
         return password;
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // Ketika disentuh tombol back pada Android
+
+             return super.onKeyDown(keyCode, event);
+
+        // Jika tidak ada halaman yang pernah dibuka
+        // Maka akan keluar dari activity (tutup aplikasi)
+
     }
 }

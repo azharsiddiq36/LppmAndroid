@@ -1,7 +1,6 @@
-package com.example.azhar.lppm;
+package com.example.azhar.lppm.Activity;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,14 +10,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.app.AlertDialog;
 
-import com.example.azhar.lppm.Controller.SessionManager;
+import com.example.azhar.lppm.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static java.security.AccessController.getContext;
 
 public class PilihanActivity extends Activity {
     @BindView(R.id.listView)

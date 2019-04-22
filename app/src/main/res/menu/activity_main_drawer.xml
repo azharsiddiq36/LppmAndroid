@@ -24,12 +24,7 @@
             android:id="@+id/nav_visiMisi"
             android:icon="@drawable/visi"
             android:title="Visi &amp; Misi" />
-        <item
-            android:icon="@drawable/pengajuan"
-            android:title="Daftar Pengajuan"
-            android:id="@+id/nav_pengajuan">
 
-        </item>
         <item
             android:id="@+id/nav_pengaturan"
             android:icon="@drawable/ic_menu_manage"

@@ -1,0 +1,32 @@
+@startuml
+Actor Pengguna
+Boundary Login
+Boundary LupaPassword
+Boundary MainActivity
+Control SessionManager
+Control PenggunaAdapter
+Entity DataUser
+Pengguna -> MainActivity: Membuka Aplikasi
+MainActivity->MainActivity: checkLogin()
+alt SudahLogin
+MainActivity ->Pengguna : Tampilan Home Aplikasi
+else Belum Login
+MainActivity -> Login : onCreate()
+end
+Login -> Pengguna: Tampilan Login
+Pengguna -> Login: Insert Nip dan Password
+Pengguna -> Login : Klik Tombol Login
+Login ->Login : btnLogin.setOnClickListener()
+Login -> PenggunaAdapter:loginRequest()
+PenggunaAdapter -> DataUser: getPengguna()
+alt successfull case
+DataUser-> PenggunaAdapter:dataValid
+Login->SessionManager :saveLogin(nip,nama,email,foto,id_pengguna,token_akses,hak_akses,konfirmasi_email)
+Login -> MainActivity:onCreate()
+MainActivity->Pengguna : Tampilan Main Activity
+else Failure
+DataUser->PenggunaAdapter:dataTidakValid
+PenggunaAdapter->Login : Tampilkan Pesan data tidak valid
+Login->Pengguna:Tampilkan Pesan Kesalahan
+end
+@enduml

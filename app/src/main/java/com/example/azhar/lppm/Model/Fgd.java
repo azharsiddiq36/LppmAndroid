@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Fgd {
     @SerializedName("FgdId")
-    private String fgdId;
+    private Integer fgdId;
     @SerializedName("FgdNarNam")
     private String fgdNarNam;
     @SerializedName("FgdModNam")
@@ -16,18 +16,28 @@ public class Fgd {
     private String fgdJud;
     @SerializedName("FgdJen")
     private String fgdJen;
-    @SerializedName("FgdLok")
-    private String fgdLok;
+    @SerializedName("FgdProv")
+    private String fgdProv;
+    @SerializedName("FgdKot")
+    private String fgdKot;
+    @SerializedName("FgdKec")
+    private String fgdKec;
+    @SerializedName("FgdKel")
+    private String fgdKel;
     @SerializedName("FgdPesNam")
     private List<String> fgdPesNam = null;
     @SerializedName("FgdTglPel")
     private String fgdTglPel;
+    @SerializedName("FgdTglSurat")
+    private String fgdTglSurat;
+    @SerializedName("FgdTglAcc")
+    private String fgdTglAcc;
 
-    public String getFgdId() {
+    public Integer getFgdId() {
         return fgdId;
     }
 
-    public void setFgdId(String fgdId) {
+    public void setFgdId(Integer fgdId) {
         this.fgdId = fgdId;
     }
 
@@ -63,12 +73,36 @@ public class Fgd {
         this.fgdJen = fgdJen;
     }
 
-    public String getFgdLok() {
-        return fgdLok;
+    public String getFgdProv() {
+        return fgdProv;
     }
 
-    public void setFgdLok(String fgdLok) {
-        this.fgdLok = fgdLok;
+    public void setFgdProv(String fgdProv) {
+        this.fgdProv = fgdProv;
+    }
+
+    public String getFgdKot() {
+        return fgdKot;
+    }
+
+    public void setFgdKot(String fgdKot) {
+        this.fgdKot = fgdKot;
+    }
+
+    public String getFgdKec() {
+        return fgdKec;
+    }
+
+    public void setFgdKec(String fgdKec) {
+        this.fgdKec = fgdKec;
+    }
+
+    public String getFgdKel() {
+        return fgdKel;
+    }
+
+    public void setFgdKel(String fgdKel) {
+        this.fgdKel = fgdKel;
     }
 
     public List<String> getFgdPesNam() {
@@ -103,8 +137,4 @@ public class Fgd {
         this.fgdTglAcc = fgdTglAcc;
     }
 
-    @SerializedName("FgdTglSurat")
-    private String fgdTglSurat;
-    @SerializedName("FgdTglAcc")
-    private String fgdTglAcc;
 }

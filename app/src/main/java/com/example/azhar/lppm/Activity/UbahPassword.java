@@ -1,4 +1,4 @@
-package com.example.azhar.lppm;
+package com.example.azhar.lppm.Activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.azhar.lppm.Controller.SessionManager;
+import com.example.azhar.lppm.R;
 import com.example.azhar.lppm.Rest.CombineApi;
 import com.example.azhar.lppm.Rest.LppmInterface;
 

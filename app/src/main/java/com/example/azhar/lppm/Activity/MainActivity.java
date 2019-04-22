@@ -1,12 +1,10 @@
-package com.example.azhar.lppm;
+package com.example.azhar.lppm.Activity;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,37 +14,87 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 
 import com.example.azhar.lppm.Controller.SessionManager;
-import com.example.azhar.lppm.Model.Penelitian;
-import com.example.azhar.lppm.Model.Pengabdian;
+import com.example.azhar.lppm.R;
 
 import java.util.HashMap;
-import java.util.Set;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     SessionManager sessionManager;
     Dialog myDialog;
+    Button penelitian,fgd,pengabdian,perjalanan;
+    private PopupWindow mPopupWindow;
+    private Context mContext;
+    private Activity mActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sessionManager = new SessionManager(MainActivity.this);
-        sessionManager.checkLogin();
+       // sessionManager.checkLogin();
         setContentView(R.layout.activity_main);
         HashMap<String,String> map = sessionManager.getDetailsLoggin();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mContext = getApplicationContext();
+        mActivity = MainActivity.this;
         myDialog = new Dialog(this);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        perjalanan = (Button)findViewById(R.id.btnPenerjalanan);
+        final RelativeLayout lyDinamic = (RelativeLayout)findViewById(R.id.lyDinamic);
+        perjalanan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = null;
+                i = new Intent(MainActivity.this,PenggunaActivity.class);
+                i.putExtra("layout","perjalanan");
+                startActivity(i);
+            }
+        });
+        penelitian = (Button)findViewById(R.id.btnPenelitian);
+        penelitian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = null;
+                i = new Intent(MainActivity.this,PenggunaActivity.class);
+                i.putExtra("layout","penelitian");
+                startActivity(i);
+            }
+        });
+        pengabdian = (Button)findViewById(R.id.btnPengabdian);
+        pengabdian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = null;
+                i = new Intent(MainActivity.this,PenggunaActivity.class);
+                i.putExtra("layout","pengabdian");
+                startActivity(i);
+            }
+        });
+        fgd = (Button)findViewById(R.id.btnFgd);
+        fgd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = null;
+                i = new Intent(MainActivity.this,PenggunaActivity.class);
+                i.putExtra("layout","fgd");
+                startActivity(i);
+            }
+        });
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myDialog.setContentView(R.layout.login);
-                myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                myDialog.show();
+//                myDialog.setContentView(R.layout.detail_surattugas);
+//                myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                myDialog.show();
+                Intent i = new Intent(MainActivity.this,DetailDisposisiActivity.class);
+                startActivity(i);
             }
-        });
+        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -100,28 +148,26 @@ public class MainActivity extends AppCompatActivity
         Intent i = null;
         if (id == R.id.nav_penelitian) {
             // Handle the camera action
-            i = new Intent(this,PenelitianActivity.class);
+            i = new Intent(this,PenggunaActivity.class);
             i.putExtra("layout","penelitian");
         } else if (id == R.id.nav_pengabdian) {
-            i = new Intent(this,PengabdianActivity.class);
+            i = new Intent(this,PenggunaActivity.class);
             i.putExtra("layout","pengabdian");
         } else if (id == R.id.nav_fgd) {
-            i = new Intent(this,FgdActivity.class);
+            i = new Intent(this,PenggunaActivity.class);
             i.putExtra("layout","fgd");
         } else if (id == R.id.nav_perjalanan) {
-            i = new Intent(this,PerjalananActivity.class);
+            i = new Intent(this,PenggunaActivity.class);
             i.putExtra("layout","perjalanan");
         } else if (id == R.id.nav_visiMisi) {
-
+            i = new Intent(this,VisiMisiActivity.class);
         } else if (id == R.id.nav_pengaturan) {
             i = new Intent(this,SettingActivity.class);
-        }
-        else if (id == R.id.nav_pengajuan) {
-            i = new Intent(this,PenggunaActivity.class);
         }
         startActivity(i);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

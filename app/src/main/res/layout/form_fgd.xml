@@ -1,218 +1,302 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <LinearLayout android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <android.support.design.widget.AppBarLayout android:id="@+id/appbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/appbar"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@string/app_name">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_weight="1"
-                android:background="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|enterAlways"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:title="@string/app_name">
+        </android.support.v7.widget.Toolbar>
 
-            </android.support.v7.widget.Toolbar>
-
-        </android.support.design.widget.AppBarLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_margin="8dp"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/moderator"
-                android:layout_height="45dp"
-                android:tint="@color/iconColor"
-                android:layout_gravity="center_vertical"/>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:padding="5dp"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:padding="5dp"
-                    android:background="@drawable/bg_form"
-                    android:id="@+id/etNarasumber"
-                    android:singleLine="true"
-
-                    android:layout_height="wrap_content"
-                    android:hint="Narasumber"/>
-            </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_margin="8dp"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/narasumber"
-                android:layout_height="45dp"
-                android:tint="@color/iconColor"
-                android:layout_gravity="center_vertical"/>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:padding="5dp"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:padding="5dp"
-                    android:background="@drawable/bg_form"
-                    android:id="@+id/etModerator"
-                    android:singleLine="true"
-                    android:layout_height="wrap_content"
-                    android:hint="Moderator"/>
-            </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_margin="8dp"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/judul"
-                android:tint="#015C5A" />
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:padding="5dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/etJudul"
-                    android:layout_width="match_parent"
-                    android:padding="5dp"
-                    android:background="@drawable/bg_form"
-                    android:singleLine="true"
-                    android:layout_height="wrap_content"
-                    android:hint="Judul Penelitian/Pengabdian"/>
-            </android.support.design.widget.TextInputLayout>
-
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:textSize="18dp"
-            android:text="Jenis FGD"/>
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton
-                android:layout_margin="10dp"
-                android:hint="Penelitian"
-                android:id="@+id/rbPenelitian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:id="@+id/rbPengabdian"
-                android:layout_margin="10dp"
-                android:hint="Pengabdian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </RadioGroup>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_margin="8dp"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/ic_location_on_black_24dp"
-                android:tint="#015C5A" />
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:padding="5dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/etLokasi"
-                    android:layout_width="match_parent"
-                    android:padding="5dp"
-                    android:singleLine="true"
-                    android:background="@drawable/bg_form"
-                    android:layout_height="wrap_content"
-                    android:hint="Lokasi FGD"/>
-            </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_margin="8dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="2dp"
-                android:src="@drawable/anggota"
-                android:tint="#015C5A" />
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="8dp"
-                android:layout_height="wrap_content">
-
-
-                <EditText
-                    android:background="@drawable/bg_form"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nama Anggota"
-                    android:singleLine="true"
-                    android:padding="5dp"
-                    android:id="@+id/etAnggota"/>
-            </android.support.design.widget.TextInputLayout>
-            <Button
-                android:id="@+id/btnAdd"
-                android:layout_width="45dp"
-                android:theme="@style/buttonstyle3"
-                android:layout_height="45dp"
-                android:background="@drawable/ic_person_add_black_24dp" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
+    </android.support.design.widget.AppBarLayout>
+    <ScrollView xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:id="@+id/lyDinamic">
-        </LinearLayout>
+            android:layout_margin="15dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="10dp"
+                    android:tint="#424242"
+                    android:src="@drawable/moderator"
+                    android:layout_height="35dp" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/etNarasumber"
+                        android:singleLine="true"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Narasumber"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="55dp"
+                        android:fontFamily="@font/amethysta">
+                    </EditText>
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="10dp"
+                    android:tint="#424242"
+                    android:src="@drawable/narasumber"
+                    android:layout_height="35dp" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/etModerator"
+                        android:singleLine="true"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Moderator"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="55dp"
+                        android:fontFamily="@font/amethysta">
+                    </EditText>
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="10dp"
+                    android:tint="#424242"
+                    android:src="@drawable/judul"
+                    android:layout_height="35dp" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/etJudul"
+                        android:singleLine="true"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Judul Kegiatan"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="55dp"
+                        android:fontFamily="@font/amethysta">
+                    </EditText>
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
-            android:text="Tanggal Pelaksanaan"/>
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:text="Jenis FGD"/>
+            <RadioGroup
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Penelitian"
+                    android:layout_weight="1"
+                    android:id="@+id/rbPenelitian"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pengabdian"
+                    android:layout_weight="1"
+                    android:id="@+id/rbPengabdian"/>
+            </RadioGroup>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lokasi Penelitian"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                android:layout_marginTop="3dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="10dp"
+                    android:tint="#424242"
+                    android:src="@drawable/ic_location_city_black_24dp"
+                    android:layout_height="35dp" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <AutoCompleteTextView
+
+                        android:id="@+id/actvProvinsi"
+                        android:layout_width="match_parent"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="55dp"
+                        android:fontFamily="@font/amethysta"
+                        android:hint="Provinsi"
+                        android:completionThreshold="1"
+                        android:completionHint="Provinsi"
+                        android:layout_height="wrap_content" />
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="10dp"
+                    android:tint="#424242"
+                    android:src="@drawable/ic_location_city_black_24dp"
+                    android:layout_height="35dp" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <AutoCompleteTextView
+
+                        android:id="@+id/actvKabupaten"
+                        android:layout_width="match_parent"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="55dp"
+                        android:fontFamily="@font/amethysta"
+                        android:hint="Kabupaten"
+                        android:completionThreshold="1"
+                        android:completionHint="Provinsi"
+                        android:layout_height="wrap_content" />
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="10dp"
+                    android:tint="#424242"
+                    android:src="@drawable/ic_location_city_black_24dp"
+                    android:layout_height="35dp" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <AutoCompleteTextView
+                        android:id="@+id/actvKecamatan"
+                        android:layout_width="match_parent"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="55dp"
+                        android:fontFamily="@font/amethysta"
+                        android:hint="Kecamatan"
+                        android:completionThreshold="1"
+                        android:completionHint="Provinsi"
+                        android:layout_height="wrap_content" />
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="10dp"
+                    android:tint="#424242"
+                    android:src="@drawable/ic_location_city_black_24dp"
+                    android:layout_height="35dp" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <AutoCompleteTextView
+
+                        android:id="@+id/actvDesa"
+                        android:layout_width="match_parent"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="55dp"
+                        android:fontFamily="@font/amethysta"
+                        android:hint="Desa"
+                        android:completionThreshold="1"
+                        android:completionHint="Provinsi"
+                        android:layout_height="wrap_content" />
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginLeft="10dp"
+                    android:tint="#424242"
+                    android:src="@drawable/anggota"
+                    android:layout_height="35dp" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <AutoCompleteTextView
+                        android:id="@+id/etAnggota"
+                        android:singleLine="true"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="55dp"
+                        android:fontFamily="@font/amethysta"
+                        android:hint="Anggota"
+                        android:completionThreshold="1"
+                        android:completionHint="Anggota"
+                        android:layout_height="wrap_content" />
+                </android.support.design.widget.TextInputLayout>
+                <Button
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/ic_person_add_black_24dp"
+                    android:backgroundTint="#424242"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/btnAdd"
+                    android:layout_marginRight="10dp"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/lyDinamic">
+            </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
@@ -222,25 +306,30 @@
                 android:id="@+id/btTanggal"
                 android:background="@drawable/ic_date_range_black_24dp"
                 android:layout_width="45dp"
+                android:backgroundTint="#424242"
                 android:theme="@style/buttonstyle3"
                 android:layout_height="45dp" />
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_weight="1"
-                android:text="Klik icon untuk Mengatur Jadwal"
+                android:text="Tanggal Mulai"
                 android:id="@+id/tvTanggal"
                 android:layout_gravity="center_vertical"
                 android:textSize="18dp"
                 android:layout_height="wrap_content" />
-
         </LinearLayout>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:theme="@style/buttonstyle3"
-            android:text="Submit"
-            android:id="@+id/btnSimpan"
-            android:layout_margin="8dp"
-            android:textColor="#fff"/>
-    </LinearLayout>
-</ScrollView>
+            <Button
+                android:id="@+id/btnSimpan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Simpan"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="@font/amethysta"
+                android:background="@drawable/gb_selector_1"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#fff"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

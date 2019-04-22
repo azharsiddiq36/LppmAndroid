@@ -15,12 +15,16 @@ public class Pengabdian {
     private String sipJud;
     @SerializedName("SipTglKeg")
     private String sipTglKeg;
-    @SerializedName("SipLok")
-    private String sipLok;
+    @SerializedName("SipProv")
+    private String sipProv;
+    @SerializedName("SipKot")
+    private String sipKot;
+    @SerializedName("SipKec")
+    private String sipKec;
+    @SerializedName("SipKel")
+    private String sipKel;
     @SerializedName("SipInsTuj")
     private String sipInsTuj;
-    @SerializedName("SipKabKot")
-    private String sipKabKot;
     @SerializedName("SipTglSratKel")
     private String sipTglSratKel;
     @SerializedName("SipTglAcc")
@@ -66,12 +70,36 @@ public class Pengabdian {
         this.sipTglKeg = sipTglKeg;
     }
 
-    public String getSipLok() {
-        return sipLok;
+    public String getSipProv() {
+        return sipProv;
     }
 
-    public void setSipLok(String sipLok) {
-        this.sipLok = sipLok;
+    public void setSipProv(String sipProv) {
+        this.sipProv = sipProv;
+    }
+
+    public String getSipKot() {
+        return sipKot;
+    }
+
+    public void setSipKot(String sipKot) {
+        this.sipKot = sipKot;
+    }
+
+    public String getSipKec() {
+        return sipKec;
+    }
+
+    public void setSipKec(String sipKec) {
+        this.sipKec = sipKec;
+    }
+
+    public String getSipKel() {
+        return sipKel;
+    }
+
+    public void setSipKel(String sipKel) {
+        this.sipKel = sipKel;
     }
 
     public String getSipInsTuj() {
@@ -80,14 +108,6 @@ public class Pengabdian {
 
     public void setSipInsTuj(String sipInsTuj) {
         this.sipInsTuj = sipInsTuj;
-    }
-
-    public String getSipKabKot() {
-        return sipKabKot;
-    }
-
-    public void setSipKabKot(String sipKabKot) {
-        this.sipKabKot = sipKabKot;
     }
 
     public String getSipTglSratKel() {

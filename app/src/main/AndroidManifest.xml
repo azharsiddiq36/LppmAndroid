@@ -2,6 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.azhar.lppm">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,62 +23,49 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.azhar.lppm.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/MyMaterialTheme">
+
+        </activity>
+        <activity android:name=".Activity.VisiMisiActivity"></activity>
+        <activity android:name=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".PenelitianActivity"
+        <activity android:name=".Activity.PenelitianActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".FgdActivity"
+        <activity android:name=".Activity.FgdActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".PengabdianActivity"
+        <activity android:name=".Activity.PengabdianActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".PerjalananActivity"
+        <activity android:name=".Activity.PerjalananActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".FormPenelitianActivity"></activity>
-        <activity android:name=".FormFgdActivity"></activity>
-        <activity android:name=".FormPerjalananActivity"></activity>
-        <activity android:name=".FormPengabdianActivity"></activity>
-        <activity android:name=".DetailFgdActivity"></activity>
-        <activity android:name=".DetailPenelitianActivity"></activity>
-        <activity android:name=".DetailPengabdianActivity"></activity>
-        <activity android:name=".DetailPerjalananActivity"></activity>
-        <activity android:name=".LupaPassword"></activity>
-        <activity android:name=".SettingActivity"></activity>
-        <activity android:name=".PenggunaActivity"></activity>
-        <activity android:name=".PilihanActivity"></activity>
+        <activity android:name=".Activity.FormPenelitianActivity"></activity>
+        <activity android:name=".Activity.FormPengabdianActivity"></activity>
+        <activity android:name=".Activity.FormPerjalananActivity"></activity>
+        <activity android:name=".Activity.FormFgdActivity"></activity>
+        <activity android:name=".Activity.LupaPassword"></activity>
+        <activity android:name=".Activity.SettingActivity"></activity>
+        <activity android:name=".Activity.PenggunaActivity"></activity>
+        <activity android:name=".Activity.PilihanActivity"></activity>
+        <activity android:name=".Activity.UbahPassword"></activity>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
 
     </application>

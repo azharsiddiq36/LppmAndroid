@@ -9,4 +9,28 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="spGolongan">
+        <item>Asisten Ahli</item>
+        <item>Lektor</item>
+        <item>Lektor Kepala</item>
+        <item>Guru Besar</item>
+    </string-array>
+    <string-array name="spAa">
+        <item>Penata Muda Tk.I. III/b</item>
+    </string-array>
+    <string-array name="spL">
+        <item>Penata. III/c</item>
+        <item>Penata Tk.I. III/d</item>
+    </string-array>
+    <string-array name="spLk">
+        <item>Pembina. IV/a</item>
+        <item>Pembina Tk.I. IV/b</item>
+        <item>Pembina Utama Muda. IV/c</item>
+    </string-array>
+    <string-array name="spGb">
+        <item>Pembina Utama Madya. IV/d</item>
+        <item>Pembina Utama. IV/e</item>
+    </string-array>
+
 </resources>

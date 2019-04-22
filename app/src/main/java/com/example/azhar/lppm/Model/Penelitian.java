@@ -2,6 +2,7 @@ package com.example.azhar.lppm.Model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Penelitian {
@@ -17,8 +18,14 @@ public class Penelitian {
     private String sitJud;
     @SerializedName("SitTglKeg")
     private String sitTglKeg;
-    @SerializedName("SitLok")
-    private String sitLok;
+    @SerializedName("SitProv")
+    private String sitProv;
+    @SerializedName("SitKot")
+    private String sitKot;
+    @SerializedName("SitKec")
+    private String sitKec;
+    @SerializedName("SitKel")
+    private String sitKel;
     @SerializedName("SitInsTuj")
     private String sitInsTuj;
     @SerializedName("SitNomKtp")
@@ -60,7 +67,7 @@ public class Penelitian {
         return sitAngNam;
     }
 
-    public void setSitAngNam(List<String> sitAngNam) {
+    public void setSitAngNam(ArrayList<String> sitAngNam) {
         this.sitAngNam = sitAngNam;
     }
 
@@ -80,12 +87,40 @@ public class Penelitian {
         this.sitTglKeg = sitTglKeg;
     }
 
-    public String getSitLok() {
-        return sitLok;
+    public void setSitAngNam(List<String> sitAngNam) {
+        this.sitAngNam = sitAngNam;
     }
 
-    public void setSitLok(String sitLok) {
-        this.sitLok = sitLok;
+    public String getSitProv() {
+        return sitProv;
+    }
+
+    public void setSitProv(String sitProv) {
+        this.sitProv = sitProv;
+    }
+
+    public String getSitKot() {
+        return sitKot;
+    }
+
+    public void setSitKot(String sitKot) {
+        this.sitKot = sitKot;
+    }
+
+    public String getSitKec() {
+        return sitKec;
+    }
+
+    public void setSitKec(String sitKec) {
+        this.sitKec = sitKec;
+    }
+
+    public String getSitKel() {
+        return sitKel;
+    }
+
+    public void setSitKel(String sitKel) {
+        this.sitKel = sitKel;
     }
 
     public String getSitInsTuj() {

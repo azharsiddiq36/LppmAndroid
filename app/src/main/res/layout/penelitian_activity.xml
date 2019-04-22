@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
     android:background="@android:color/white"
-    tools:context=".PenelitianActivity">
+    tools:context=".Activity.PenelitianActivity">
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBar"
         android:minHeight="?attr/actionBarSize"
@@ -39,26 +39,26 @@
             android:layout_height="match_parent"
             android:id="@+id/tab_kontak"
             android:text="Terbaru"
-            android:icon="@drawable/pengabdian"/>
+            android:icon="@drawable/newspaper"/>
         <android.support.design.widget.TabItem
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/tab_pesan"
             android:text="Terurut"
-            android:icon="@drawable/penelitian"/>
+            android:icon="@drawable/sort"/>
 
         <android.support.design.widget.TabItem
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/tab_setuju"
             android:text="Disetujui"
-            android:icon="@drawable/penelitian"/>
+            android:icon="@drawable/checked"/>
         <android.support.design.widget.TabItem
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/tab_belumsetuju"
             android:text="Belum di Setujui"
-            android:icon="@drawable/penelitian"/>
+            android:icon="@drawable/stopwatch"/>
     </android.support.design.widget.TabLayout>
 
     <android.support.v4.view.ViewPager
@@ -70,13 +70,12 @@
     </android.support.v4.view.ViewPager>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
-        android:backgroundTint="@color/iconColor"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="20dp"
         android:src="@drawable/ic_add_black_24dp" />
-
 </RelativeLayout>
 

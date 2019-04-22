@@ -1,7 +1,5 @@
-package com.example.azhar.lppm;
+package com.example.azhar.lppm.Activity;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,15 +7,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
+import com.example.azhar.lppm.Activity.FormPengabdianActivity;
 import com.example.azhar.lppm.Adapter.ViewPagerAdapter;
+import com.example.azhar.lppm.R;
 
 public class PengabdianActivity extends AppCompatActivity {
     @Override
@@ -34,6 +29,7 @@ public class PengabdianActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(),FormPengabdianActivity.class);
                 i.putExtra("layout","pengabdian");
+                i.putExtra("tahun",getIntent().getStringExtra("tahun"));
                 startActivity(i);
                 finish();
             }
@@ -58,30 +54,30 @@ public class PengabdianActivity extends AppCompatActivity {
             }
         });
     }
-    //Code Program pada Method dibawah ini akan Berjalan saat Option Menu Dibuat
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //Memanggil/Memasang menu item pada toolbar dari layout menu_bar.xml
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_bar, menu);
-        MenuItem searchIem = menu.findItem(R.id.search);
-        final SearchView searchView = (SearchView) searchIem.getActionView();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                //Hasil.setText("Hasil Pencarian: "+query);
-                Toast.makeText(getApplicationContext(),query, Toast.LENGTH_SHORT).show();
-
-                searchView.clearFocus();
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                return false;
-            }
-        });
-        return true;
-    }
+//    //Code Program pada Method dibawah ini akan Berjalan saat Option Menu Dibuat
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        //Memanggil/Memasang menu item pada toolbar dari layout menu_bar.xml
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu_bar, menu);
+//        MenuItem searchIem = menu.findItem(R.id.search);
+//        final SearchView searchView = (SearchView) searchIem.getActionView();
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @SuppressLint("SetTextI18n")
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                //Hasil.setText("Hasil Pencarian: "+query);
+//                Toast.makeText(getApplicationContext(),query, Toast.LENGTH_SHORT).show();
+//
+//                searchView.clearFocus();
+//                return true;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String s) {
+//                return false;
+//            }
+//        });
+//        return true;
+//    }
 }
