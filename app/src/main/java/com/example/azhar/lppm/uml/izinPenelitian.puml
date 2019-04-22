@@ -1,0 +1,37 @@
+@startuml
+Actor Pengguna
+Boundary MainActivity
+Boundary TahunActivity
+Boundary PenelitianActivity
+Boundary FormPenelitianActivity
+Control PenelitianAdapter
+Control ViewPagerAdapter
+Entity ModelPenelitian
+Pengguna ->MainActivity:Membuka Tampilan
+MainActivity-> MainActivity: onCreate()
+Pengguna -> MainActivity : onNavigationItemSelected(Penelitian)
+MainActivity->TahunActivity:Intent(this,TahunActivity.class)
+TahunActivity->TahunActivity:onCreate()
+TahunActivity -> Pengguna: Tampilkan Tahun Pengajuan
+Pengguna -> TahunActivity:onItemSelected()
+TahunActivity -> PenelitianActivity:Intent(TahunActivity.this,PenelitianAcitivity.class)
+PenelitianActivity->ViewPagerAdapter:setFragment(TerbaruFragment)
+ViewPagerAdapter ->ViewPagerAdapter:onCreateView()
+ViewPagerAdapter -> PenelitianAdapter:listPenelitian()
+PenelitianAdapter -> ModelPenelitian: getListPenelitian()
+ModelPenelitian -> PenelitianAdapter: Berhasil Memuat Data
+PenelitianAdapter->PenelitianActivity:setAdapter()
+PenelitianActivity->Pengguna:Menampilkan List Surat Penelitian
+Pengguna -> PenelitianActivity:onItemTouchListener()
+PenelitianActivity->Pengguna:Menampilkan Rincian Surat
+Pengguna -> PenelitianActivity:btnEdit.setOnClickListener()
+PenelitianActivity->FormPenelitianActivity:Intent(this,FormPenelitianActivity.class)
+FormPenelitianActivity->FormPenelitianActivity:onCreate()
+FormPenelitianActivity->Pengguna:Menampilkan form yang sudah terisi dari data yg sudah ada untuk diedit
+Pengguna->FormPenelitianActivity:btnSimpan.setOnClickListener()
+FormPenelitianActivity->PenelitianAdapter:editPenelitian()
+PenelitianAdapter->ModelPenelitian:setPenelitian(position)
+ModelPenelitian->PenelitianAdapter:Memperbarui Data
+PenelitianAdapter->MainActivity:Berhasil Memperbarui Data
+MainActivity->Pengguna: Menampilkan Toast Berhasil Memperbarui Data
+@enduml

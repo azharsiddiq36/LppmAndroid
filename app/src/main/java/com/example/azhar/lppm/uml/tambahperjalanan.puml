@@ -1,0 +1,35 @@
+@startuml
+Actor Pengguna
+Boundary MainActivity
+Boundary TahunActivity
+Boundary PerjalananActivity
+Boundary FormPerjalananActivity
+Control PerjalananAdapter
+Control ViewPagerAdapter
+Entity ModelPerjalanan
+Pengguna ->MainActivity:Membuka Tampilan
+MainActivity-> MainActivity: onCreate()
+Pengguna -> MainActivity : onNavigationItemSelected(Perjalanan)
+MainActivity->TahunActivity:Intent(this,TahunActivity.class)
+TahunActivity->TahunActivity:onCreate()
+TahunActivity -> Pengguna: Tampilkan Tahun Pengajuan
+Pengguna -> TahunActivity:onItemSelected()
+TahunActivity -> PerjalananActivity:Intent(TahunActivity.this,PerjalananAcitivity.class)
+PerjalananActivity->ViewPagerAdapter:setFragment(TerbaruFragment)
+ViewPagerAdapter ->ViewPagerAdapter:onCreateView()
+ViewPagerAdapter -> PerjalananAdapter:listPerjalanan()
+PerjalananAdapter -> ModelPerjalanan: getListPerjalanan()
+ModelPerjalanan -> PerjalananAdapter: Berhasil Memuat Data
+PerjalananAdapter->PerjalananActivity:setAdapter()
+PerjalananActivity->Pengguna:Menampilkan List Surat Perjalanan
+Pengguna -> PerjalananActivity:fab.setOnClickListener()
+PerjalananActivity->FormPerjalananActivity:Intent(this,FormPerjalananActivity.class)
+FormPerjalananActivity->FormPerjalananActivity:onCreate()
+FormPerjalananActivity->Pengguna:Menampilkan form Perjalanan
+Pengguna->FormPerjalananActivity:btnSimpan.setOnClickListener()
+FormPerjalananActivity->PerjalananAdapter:insertPerjalanan()
+PerjalananAdapter->ModelPerjalanan:setPerjalanan()
+ModelPerjalanan->PerjalananAdapter:Menambahkan Data
+PerjalananAdapter->MainActivity:Berhasil Menambahkan Data
+MainActivity->Pengguna: Menampilkan Toast Berhasil Menambahka Data
+@enduml

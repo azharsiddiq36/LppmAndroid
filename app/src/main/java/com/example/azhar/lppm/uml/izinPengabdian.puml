@@ -1,0 +1,37 @@
+@startuml
+Actor Pengguna
+Boundary MainActivity
+Boundary TahunActivity
+Boundary PengabdianActivity
+Boundary FormPengabdianActivity
+Control PengabdianAdapter
+Control ViewPagerAdapter
+Entity ModelPengabdian
+Pengguna ->MainActivity:Membuka Tampilan
+MainActivity-> MainActivity: onCreate()
+Pengguna -> MainActivity : onNavigationItemSelected(Pengabdian)
+MainActivity->TahunActivity:Intent(this,TahunActivity.class)
+TahunActivity->TahunActivity:onCreate()
+TahunActivity -> Pengguna: Tampilkan Tahun Pengajuan
+Pengguna -> TahunActivity:onItemSelected()
+TahunActivity -> PengabdianActivity:Intent(TahunActivity.this,PengabdianAcitivity.class)
+PengabdianActivity->ViewPagerAdapter:setFragment(TerbaruFragment)
+ViewPagerAdapter ->ViewPagerAdapter:onCreateView()
+ViewPagerAdapter -> PengabdianAdapter:listPengabdian()
+PengabdianAdapter -> ModelPengabdian: getListPengabdian()
+ModelPengabdian -> PengabdianAdapter: Berhasil Memuat Data
+PengabdianAdapter->PengabdianActivity:setAdapter()
+PengabdianActivity->Pengguna:Menampilkan List Surat Pengabdian
+Pengguna -> PengabdianActivity:onItemTouchListener()
+PengabdianActivity->Pengguna:Menampilkan Rincian Surat
+Pengguna -> PengabdianActivity:btnEdit.setOnClickListener()
+PengabdianActivity->FormPengabdianActivity:Intent(this,FormPengabdianActivity.class)
+FormPengabdianActivity->FormPengabdianActivity:onCreate()
+FormPengabdianActivity->Pengguna:Menampilkan form yang sudah terisi dari data yg sudah ada untuk diedit
+Pengguna->FormPengabdianActivity:btnSimpan.setOnClickListener()
+FormPengabdianActivity->PengabdianAdapter:editPengabdian()
+PengabdianAdapter->ModelPengabdian:setPengabdian(position)
+ModelPengabdian->PengabdianAdapter:Memperbarui Data
+PengabdianAdapter->MainActivity:Berhasil Memperbarui Data
+MainActivity->Pengguna: Menampilkan Toast Berhasil Memperbarui Data
+@enduml

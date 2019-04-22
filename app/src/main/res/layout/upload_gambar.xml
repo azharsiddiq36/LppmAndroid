@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    app:cardBackgroundColor="#F1F8E9"
+    android:padding="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout android:layout_width="match_parent"
+        android:background="#d2fda1"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            app:cardCornerRadius="30dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:elevation="2dp"
+            android:id="@+id/cvPhoto"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:background="@drawable/ic_menu_camera"/>
+            <TextView
+                android:textStyle="bold"
+                android:fontFamily="@font/amethysta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Photo"/>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:elevation="1dp"
+            android:id="@+id/cvGallery"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="30dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginTop="20dp"
+                android:layout_width="100dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_height="100dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/ic_menu_gallery"/>
+            <TextView
+                android:textStyle="bold"
+                android:fontFamily="@font/amethysta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Gallery"/>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    </RelativeLayout>
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:id="@+id/btnKembali"
+        android:background="@drawable/gb_selector_1"
+        android:text="Tutup Pilihan
+"/>
+</LinearLayout>

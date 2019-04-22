@@ -1,0 +1,35 @@
+@startuml
+Actor Pengguna
+Boundary MainActivity
+Boundary TahunActivity
+Boundary PengabdianActivity
+Boundary FormPengabdianActivity
+Control PengabdianAdapter
+Control ViewPagerAdapter
+Entity ModelPengabdian
+Pengguna ->MainActivity:Membuka Tampilan
+MainActivity-> MainActivity: onCreate()
+Pengguna -> MainActivity : onNavigationItemSelected(Pengabdian)
+MainActivity->TahunActivity:Intent(this,TahunActivity.class)
+TahunActivity->TahunActivity:onCreate()
+TahunActivity -> Pengguna: Tampilkan Tahun Pengajuan
+Pengguna -> TahunActivity:onItemSelected()
+TahunActivity -> PengabdianActivity:Intent(TahunActivity.this,PengabdianAcitivity.class)
+PengabdianActivity->ViewPagerAdapter:setFragment(TerbaruFragment)
+ViewPagerAdapter ->ViewPagerAdapter:onCreateView()
+ViewPagerAdapter -> PengabdianAdapter:listPengabdian()
+PengabdianAdapter -> ModelPengabdian: getListPengabdian()
+ModelPengabdian -> PengabdianAdapter: Berhasil Memuat Data
+PengabdianAdapter->PengabdianActivity:setAdapter()
+PengabdianActivity->Pengguna:Menampilkan List Surat Pengabdian
+Pengguna -> PengabdianActivity:fab.setOnClickListener()
+PengabdianActivity->FormPengabdianActivity:Intent(this,FormPengabdianActivity.class)
+FormPengabdianActivity->FormPengabdianActivity:onCreate()
+FormPengabdianActivity->Pengguna:Menampilkan form Pengabdian
+Pengguna->FormPengabdianActivity:btnSimpan.setOnClickListener()
+FormPengabdianActivity->PengabdianAdapter:insertPengabdian()
+PengabdianAdapter->ModelPengabdian:setPengabdian()
+ModelPengabdian->PengabdianAdapter:Menambahkan Data
+PengabdianAdapter->MainActivity:Berhasil Menambahkan Data
+MainActivity->Pengguna: Menampilkan Toast Berhasil Menambahka Data
+@enduml

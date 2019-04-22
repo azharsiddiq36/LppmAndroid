@@ -1,0 +1,35 @@
+@startuml
+Actor Pengguna
+Boundary MainActivity
+Boundary TahunActivity
+Boundary FgdActivity
+Boundary FormFgdActivity
+Control FgdAdapter
+Control ViewPagerAdapter
+Entity ModelFgd
+Pengguna ->MainActivity:Membuka Tampilan
+MainActivity-> MainActivity: onCreate()
+Pengguna -> MainActivity : onNavigationItemSelected(Fgd)
+MainActivity->TahunActivity:Intent(this,TahunActivity.class)
+TahunActivity->TahunActivity:onCreate()
+TahunActivity -> Pengguna: Tampilkan Tahun Pengajuan
+Pengguna -> TahunActivity:onItemSelected()
+TahunActivity -> FgdActivity:Intent(TahunActivity.this,FgdAcitivity.class)
+FgdActivity->ViewPagerAdapter:setFragment(TerbaruFragment)
+ViewPagerAdapter ->ViewPagerAdapter:onCreateView()
+ViewPagerAdapter -> FgdAdapter:listFgd()
+FgdAdapter -> ModelFgd: getListFgd()
+ModelFgd -> FgdAdapter: Berhasil Memuat Data
+FgdAdapter->FgdActivity:setAdapter()
+FgdActivity->Pengguna:Menampilkan List Surat Fgd
+Pengguna -> FgdActivity:fab.setOnClickListener()
+FgdActivity->FormFgdActivity:Intent(this,FormFgdActivity.class)
+FormFgdActivity->FormFgdActivity:onCreate()
+FormFgdActivity->Pengguna:Menampilkan form Fgd
+Pengguna->FormFgdActivity:btnSimpan.setOnClickListener()
+FormFgdActivity->FgdAdapter:insertFgd()
+FgdAdapter->ModelFgd:setFgd()
+ModelFgd->FgdAdapter:Menambahkan Data
+FgdAdapter->MainActivity:Berhasil Menambahkan Data
+MainActivity->Pengguna: Menampilkan Toast Berhasil Menambahka Data
+@enduml

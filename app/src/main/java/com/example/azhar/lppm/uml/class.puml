@@ -1,0 +1,496 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Fgd{
+-Integer:fgdId
+-String:fgdNarNam
+-String:fgdModNam
+-List<String>:fgdPesNam
+-String:fgdJud
+-String:fgdJen
+-String:fgdProv
+-String:fgdKec
+-String:fgdKel
+-String:fgdKot
+-String:fgdTglSurat
+-String:fgdTglAcc
+{method}+getFgdId():Integer
+{method}+getFgdPesNam():String
+{method}+getFgdJud():String
+{method}+getFgdTgl():String
+{method}+getFgdProv():String
+{method}+getFgdKot():String
+{method}+getFgdKec():String
+{method}+getFgdKel():String
+{method}+getFgdPesNam():List<String>
+{method}+getFgdTglSurat():String
+{method}+getFgdTglAcc():String
+}
+class Perjalanan{
+-Integer:stpId
+-String:stpKetNam
+-String:stpNikNik
+-String:stpKetJab
+-String:stpKetPang
+-List<String>:stpAngNam
+-List<String>:stpAngJab
+-List<String>:stpAngPang
+-String:stpJud
+-String:stpKlu
+-String:stpTglKeg
+-String:stpTglKlu
+-String:stpProv
+-String:stpKec
+-String:stpKel
+-String:stpKot
+-String:stpJen
+-String:stpNom
+-String:stpInsTuj
+-String:sttTglSratKel
+-String:sttTglAcc
+{method}+getStpId():Integer
+{method}+getStpKetNam():String
+{method}+getStpKetJab():String
+{method}+getStpKetPang():String
+{method}+getStpAngNam():List<String>
+{method}+getStpAngJab():List<String>
+{method}+getStpAngPang():List<String>
+{method}+getStpJud():String
+{method}+getStpTgl():String
+{method}+getStpProv():String
+{method}+getStpKot():String
+{method}+getStpKec():String
+{method}+getStpKel():String
+{method}+getStpJen():String
+{method}+getStpTglSratKel():String
+{method}+getStpTglAcc():String
+}
+class Pengabdian{
+-Integer:sipId
+-String:sipKetNam
+-List<String>:sipAngNam
+-String:sipJud
+-String:sipTglKeg
+-String:sipProv
+-String:sipKec
+-String:sipKel
+-String:sipKot
+-String:sipInsTuj
+-String:sitTglSratKel
+-String:sitTglAcc
+{method}+getSipId():Integer
+{method}+getSipKetNam():String
+{method}+getSipJud():String
+{method}+getSipTgl():String
+{method}+getSipProv():String
+{method}+getSipKot():String
+{method}+getSipKec():String
+{method}+getSipKel():String
+{method}+getSipAngNam():List<String>
+{method}+getSipInsTuj():String
+{method}+getSipTglSratKel():String
+{method}+getSipTglAcc():String
+}
+
+class Pengguna{
+-String:id_pengguna
+-String:nip
+-String:nama
+-String:email
+-String:password
+-String:hak_akses
+-String:foto
+-String:konfirmasi_email
+-String:isiSurat
+-String:tahun
+{method}+getIdPengguna():String
+{method}+getNip():String
+{method}+getNama():String
+{method}+getEmail():String
+{method}+getPassword():String
+{method}+getHak_akses():String
+{method}+getFoto():String
+{method}+getKonfirmasi_email():String
+{method}+getIsiSurat():String
+{method}+getTahun():String
+}
+class Penelitian{
+-Integer:sitId
+-String:sitEml
+-String:sitKetNam
+-List<String>:sitAngNam
+-String:sitJud
+-String:sitTglKeg
+-String:sitProv
+-String:sitKec
+-String:sitKel
+-String:sitKot
+-String:sitInsTuj
+-String:sitNomKtp
+-String:sitFotKtp
+-String:sitNom
+-String:sitTglSratKel
+-String:sitTglAcc
+{method}+getSitId():Integer
+{method}+getSitEml():String
+{method}+getSitKetNam():String
+{method}+getSitAngNam():List<String>
+{method}+getSitJud():String
+{method}+getSitTgl():String
+{method}+getSitProv():String
+{method}+getSitKot():String
+{method}+getSitKec():String
+{method}+getSitKel():String
+{method}+getSitInsTuj():String
+{method}+getSitNomKtp():String
+{method}+getSitNom():String
+{method}+getSitTglSratKel():String
+{method}+getSitTglAcc():String
+}
+
+class SessionManager{
+    -SharedPreferences:sharedPreferences
+    -SharedPreferences.Editor:editor
+    -Context:context
+    -Int:MODE_PRIVATE
+    {static}+String:KEY_ID
+    {static}+String:KEY_NIP
+    {static}+String:KEY_NAMA
+    {static}+String:KEY_EMAIL
+    {static}+String:KEY_FOTO
+    {static}+String:KEY_HAK_AKSES
+    {static}+String:KEY_TOKEN
+    {static}+String:KEY_KONFIRMASI_EMAIL
+    {static}+String:LOGIN_STATUS
+    {static}+String:SHARE_NAME
+    {method}+SessionManager(Context:context)
+    {method}+saveLogin():void
+    {method}+getDetaislLoggin():HashMap
+    {method}+checkLogin():void
+    {method}+logout():void
+    {method}+isLogin():boolean
+
+}
+
+
+
+
+class FormFgdActivity{
+~EditText:etModerator
+~EditText:etAnggota
+~EditText:etNarasumber
+~EditText:etJudul
+~TextView:tvTanggal
+~Button:btTanggal
+~RadioButton:rbPenelitian
+~RadioButton:rbPengabdian
+~LinearLayout:lyDinamic
+~AutoCompleteTextView:actvProvinsi
+~AutoCompleteTextView:actvKabupaten
+~AutoCompleteTextView:actvKecamatan
+~AutoCompleteTextView:actvDesa
+~AutoCompleteTextView:actvAnggota
+~Button:btnSimpan
+~Button:btnAdd
+~SessionManager:sessionManager
+~LppmInterface:lppmInterface
+~DatePickerDialog:datePickerDialog
+~SimpleDateFormat:simpleDateFormat
+-Int:length
+~ProvInterface:provInterface
+~List<SemuaProvinsi>:provinsiArrayList
+~List<SemuaProvinsi>:kabupatenArrayList
+~List<SemuaProvinsi>:kecamatanArrayList
+~List<SemuaProvinsi>:desaArrayList
+{static}~HashMap<String,String>:map
+{method}#oncreate(Bundle:savedIntanceState):void
+{method}+tambahAnggota(String:s):void
+{method}+checkForm(String:text):void
+{method}+loadProv():void
+{method}+loadKabupaten(String:id):void
+{method}+loadKecamatan(String:id):void
+{method}+loadDesa(String:id):void
+{method}+insertAnggota(String:s):void
+{method}{static}-sizeData(int:a):int
+{method}+showDateDialog({static}int:a):void
+{method}{static}+getJenis(String:jenis)
+
+}
+
+
+
+
+class FormPenelitianActivity{
+~EditText:etEmail
+~EditText:etKetua
+~EditText:etAnggota
+~EditText:etJudul
+~EditText:etInstansi
+~EditText:etKtp
+~EditText:etWhatsApp
+~Button:btnUpload
+~TextView:tvTanggal
+~Button:btTanggal
+~Button:btTanggalSelesai
+~Button:btTanggalSelesai
+~LinearLayout:lyDinamic
+~AutoCompleteTextView:actvProvinsi
+~AutoCompleteTextView:actvKabupaten
+~AutoCompleteTextView:actvKecamatan
+~AutoCompleteTextView:actvDesa
+~AutoCompleteTextView:actvAnggota
+~Button:btnSimpan
+~Button:btnAdd
+~SessionManager:sessionManager
+~LppmInterface:lppmInterface
+~DatePickerDialog:datePickerDialog
+~SimpleDateFormat:simpleDateFormat
+-Int:length
+~ProvInterface:provInterface
+~List<SemuaProvinsi>:provinsiArrayList
+~List<SemuaProvinsi>:kabupatenArrayList
+~List<SemuaProvinsi>:kecamatanArrayList
+~List<SemuaProvinsi>:desaArrayList
+{static}~HashMap<String,String>:map
+{method}#oncreate(Bundle:savedIntanceState):void
+{method}+tambahAnggota(String:s):void
+{method}+checkForm(String:text):void
+{method}+loadProv():void
+{method}+loadKabupaten(String:id):void
+{method}+loadKecamatan(String:id):void
+{method}+loadDesa(String:id):void
+{method}+insertAnggota(String:s):void
+{method}{static}-sizeData(int:a):int
+{method}+showDateDialog({static}int:a):void
+}
+
+
+class FormPengabdianActivity{
+~EditText:etKetua
+~EditText:etAnggota
+~EditText:etJudul
+~EditText:etInstansi
+~TextView:tvTanggal
+~Button:btTanggal
+~Button:btTanggalSelesai
+~Button:btTanggalSelesai
+~LinearLayout:lyDinamic
+~AutoCompleteTextView:actvProvinsi
+~AutoCompleteTextView:actvKabupaten
+~AutoCompleteTextView:actvKecamatan
+~AutoCompleteTextView:actvDesa
+~AutoCompleteTextView:actvAnggota
+~Button:btnSimpan
+~Button:btnAdd
+~SessionManager:sessionManager
+~LppmInterface:lppmInterface
+~DatePickerDialog:datePickerDialog
+~SimpleDateFormat:simpleDateFormat
+-Int:length
+~ProvInterface:provInterface
+~List<SemuaProvinsi>:provinsiArrayList
+~List<SemuaProvinsi>:kabupatenArrayList
+~List<SemuaProvinsi>:kecamatanArrayList
+~List<SemuaProvinsi>:desaArrayList
+{static}~HashMap<String,String>:map
+{method}#oncreate(Bundle:savedIntanceState):void
+{method}+tambahAnggota(String:s):void
+{method}+checkForm(String:text):void
+{method}+loadProv():void
+{method}+loadKabupaten(String:id):void
+{method}+loadKecamatan(String:id):void
+{method}+loadDesa(String:id):void
+{method}+insertAnggota(String:s):void
+{method}{static}-sizeData(int:a):int
+{method}+showDateDialog({static}int:a):void
+}
+
+
+
+class FormPerjalananActivity{
+~EditText:etKetua
+~Spinner:spJabatan
+~Spinner:spGolongan
+~EditText:etAnggota
+~EditText:etKluster
+~EditText:etNarasumber
+~EditText:etJudul
+~TextView:tvTanggal
+~TextView:tvTanggalKluster
+~TextView:tvTanggalSelesai
+~Button:btTanggal
+~RadioButton:rbPenelitian
+~RadioButton:rbPengabdian
+~LinearLayout:lyDinamic
+~AutoCompleteTextView:actvProvinsi
+~AutoCompleteTextView:actvKabupaten
+~AutoCompleteTextView:actvKecamatan
+~AutoCompleteTextView:actvDesa
+~AutoCompleteTextView:actvAnggota
+~Button:btnSimpan
+~Button:btnAdd
+~SessionManager:sessionManager
+~LppmInterface:lppmInterface
+~DatePickerDialog:datePickerDialog
+~SimpleDateFormat:simpleDateFormat
+-Int:length
+~ProvInterface:provInterface
+~List<SemuaProvinsi>:provinsiArrayList
+~List<SemuaProvinsi>:kabupatenArrayList
+~List<SemuaProvinsi>:kecamatanArrayList
+~List<SemuaProvinsi>:desaArrayList
+{static}~HashMap<String,String>:map
+{method}#oncreate(Bundle:savedIntanceState):void
+{method}+tambahAnggota(String:s):void
+{method}+checkForm(String:text):void
+{method}+loadProv():void
+{method}+loadKabupaten(String:id):void
+{method}+loadKecamatan(String:id):void
+{method}+loadDesa(String:id):void
+{method}+insertAnggota(String:s):void
+{method}{static}-sizeData(int:a):int
+{method}+showDateDialog({static}int:a):void
+{method}{static}+getJenis(String:jenis)
+{method}+setJab(String:s):void
+
+}
+class SettingActivity{
+~TextView:textView
+~ImageView:imgView
+~ListView:listView
+~String:imageUrl
+{method}#onCreate(Bundle SavedInstanceState):void
+}
+class PilihanActivity{
+~ListView:listView
+{method}#onCreate(Bundle SavedInstaceState:void
+}
+class UbahPassword{
+~EditText:etEmail
+~EditText:etPassword
+~EditText:etRePassword
+~Button:btnSimpan
+~LppmInterface:lppmInterface
+~SessionManager:sessionManager
+{method}#onCreate(Bundle:savedInstanceState):void
+{method}+getChangePassword(String:nip,String:password):void
+{method}{static}+convertToMd5(String:pass)
+}
+class Tahun{
+-String:tahun
+{method}+getTahun():String
+}
+class FgdAdapter{
+-ArrayList<Fgd>:rvData
+~Context:context
+~String:akses
+-ArrayList<Fgd>:rvDataList
+~SessionManager:sessionManager
+{method}+FgdAdapter(Context:context,ArrayList<Fgd>:inputData,String akses):void
+}
+class PenelitianAdapter{
+-ArrayList<Penelitian>:rvData
+~Context:context
+~String:akses
+-ArrayList<Penelitian>:rvDataList
+~SessionManager:sessionManager
+{method}+PenelitianAdapter(Context:context,ArrayList<Penelitian>:inputData,String akses):void
+}
+class PengabdianAdapter{
+-ArrayList<Pengabdian>:rvData
+~Context:context
+~String:akses
+-ArrayList<Pengabdian>:rvDataList
+~SessionManager:sessionManager
+{method}+PengabdianAdapter(Context:context,ArrayList<Pengabdian>:inputData,String akses):void
+}
+class PerjalananAdapter{
+-ArrayList<Perjalanan>:rvData
+~Context:context
+~String:akses
+-ArrayList<Perjalanan>:rvDataList
+~SessionManager:sessionManager
+{method}+PerjalananAdapter(Context:context,ArrayList<Perjalanan>:inputData,String akses):void
+}
+class ApiClient{
+    {static}+Retrofit:retrofit
+    {static}+Retrofit:retrofit2
+    {method}{static}+getApiClient():Retrofit
+    {method}{static}+getApiProv():Retrofit
+}
+class CombineApi{
+    {static}+String:BaseUrl
+    {static}+String:BaseUrlProv
+    {method}{static}+getApiService():LppmInterface
+        {method}{static}+getApiProv():ProvInterface
+}
+class MainActivity {
+  ~Session Manager : sessionManager
+  ~Dialog:MyDialog
+  -Context:mContext
+  ~Toolbar:toolbar
+  ~Button:penelitian
+  ~Button:pengabdian
+  ~Button:perjalanan
+  ~Button:Fgd
+  {method}#onCreate(Bundle:savedInstanceState):void
+  {method}+onBackPressed():void
+  {method}+onCreateOptionMenu(Menu:menu):boolean
+  {method}+onOptionItemSelected(MenuItem:menuItem):boolean
+  {method}+onNavigationItemSelected(MenuItem:menuItem):boolean
+}
+class LoginActivity{
+  ~Button:Login
+  ~EditText:etNip
+  ~EditText:etPassword
+  ~TextView:lupaPassword
+  ~TextView:Status
+  ~ImageView:imgShow
+  ~ProgressDialog:loading
+~LppmInterface:lppmInterface
+~SessionManager:sessionManager
+{method}#onCreate(Bundle:savedInstanceState):void
+{method}-requestLogin():void
+{method}{static}+convertToMd5(String:pass):String
+}
+class FgdActivity{
+~Toolbar:toolbar
+{static}~TabLayout:tabLayout
+{static}~ViewPager:viewPager
+~FloatingActionButton:fab
+{method}#onCreate(Bundle:savedInstanceState):void
+{method}+onTabSelected(Tablayout.tab:tab):void
+{method}+onTabUnSelected(Tablayout.tab:tab):void
+{method}+onTabReselected(Tablayout.tab:tab):void
+}
+class PenelitianActivity{
+~Toolbar:toolbar
+{static}~TabLayout:tabLayout
+{static}~ViewPager:viewPager
+~FloatingActionButton:fab
+{method}#onCreate(Bundle:savedInstanceState):void
+{method}+onTabSelected(Tablayout.tab:tab):void
+{method}+onTabUnSelected(Tablayout.tab:tab):void
+{method}+onTabReselected(Tablayout.tab:tab):void
+}
+
+class PengabdianActivity{
+~Toolbar:toolbar
+{static}~TabLayout:tabLayout
+{static}~ViewPager:viewPager
+~FloatingActionButton:fab
+{method}#onCreate(Bundle:savedInstanceState):void
+{method}+onTabSelected(Tablayout.tab:tab):void
+{method}+onTabUnSelected(Tablayout.tab:tab):void
+{method}+onTabReselected(Tablayout.tab:tab):void
+}
+class PerjalananActivity{
+~Toolbar:toolbar
+{static}~TabLayout:tabLayout
+{static}~ViewPager:viewPager
+~FloatingActionButton:fab
+{method}#onCreate(Bundle:savedInstanceState):void
+{method}+onTabSelected(Tablayout.tab:tab):void
+{method}+onTabUnSelected(Tablayout.tab:tab):void
+{method}+onTabReselected(Tablayout.tab:tab):void
+}
+@enduml

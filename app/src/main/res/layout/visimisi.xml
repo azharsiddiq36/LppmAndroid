@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:elevation="2dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="3dp"
+        app:cardPreventCornerOverlap="true"
+        android:padding="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Visi"
+                android:textSize="25dp"
+                android:fontFamily="@font/amethysta"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"></View>
+            <TextView
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:text="Terwujudnya Lembaga Penelitian dan Pengabdian sebagai lembaga model bidang penelitian integrasi keilmuan di dunia tahun 2033"
+                android:fontFamily="@font/amethysta"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:elevation="2dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="3dp"
+        app:cardPreventCornerOverlap="true"
+        android:padding="5dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Misi"
+            android:textSize="25dp"
+            android:fontFamily="@font/amethysta"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"></View>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/amethysta"
+            android:text="1. Melaksanakan penlitian untuk mengembangkan ilmu pengetahuan teknologi,dan senin berbasis integrasi keilmuan"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="2dp"
+            android:text="2. Memanfaatkan ilmu pengetahuan ,teknologi dan seni yang integrative untuk melaksanakan pengabdian kepada masyarakat sebagai kontribusi terhadap pembangunan perdaban manusia"
+            android:fontFamily="@font/amethysta"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/amethysta"
+            android:text="3. Menerapkan tata kelola lembaga yang memfasilitasi integrasi keilmuan secara otonom,efektif,transparan,dan akuntabel"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:fontFamily="@font/amethysta"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="8dp"
+            android:text="4. Mengembangkan sumber daya insani yang mempunyai kapabilitas, integritas, dan etos untuk melaksanakan tridarma perguruan tinggi berbasis integrasi keilmuan."
+            android:layout_height="wrap_content" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

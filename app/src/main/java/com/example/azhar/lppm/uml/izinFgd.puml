@@ -1,0 +1,37 @@
+@startuml
+Actor Pengguna
+Boundary MainActivity
+Boundary TahunActivity
+Boundary FgdActivity
+Boundary FormFgdActivity
+Control FgdAdapter
+Control ViewPagerAdapter
+Entity ModelFgd
+Pengguna ->MainActivity:Membuka Tampilan
+MainActivity-> MainActivity: onCreate()
+Pengguna -> MainActivity : onNavigationItemSelected(Fgd)
+MainActivity->TahunActivity:Intent(this,TahunActivity.class)
+TahunActivity->TahunActivity:onCreate()
+TahunActivity -> Pengguna: Tampilkan Tahun Pengajuan
+Pengguna -> TahunActivity:onItemSelected()
+TahunActivity -> FgdActivity:Intent(TahunActivity.this,FgdAcitivity.class)
+FgdActivity->ViewPagerAdapter:setFragment(TerbaruFragment)
+ViewPagerAdapter ->ViewPagerAdapter:onCreateView()
+ViewPagerAdapter -> FgdAdapter:listFgd()
+FgdAdapter -> ModelFgd: getListFgd()
+ModelFgd -> FgdAdapter: Berhasil Memuat Data
+FgdAdapter->FgdActivity:setAdapter()
+FgdActivity->Pengguna:Menampilkan List Surat Fgd
+Pengguna -> FgdActivity:onItemTouchListener()
+FgdActivity->Pengguna:Menampilkan Rincian Surat
+Pengguna -> FgdActivity:btnEdit.setOnClickListener()
+FgdActivity->FormFgdActivity:Intent(this,FormFgdActivity.class)
+FormFgdActivity->FormFgdActivity:onCreate()
+FormFgdActivity->Pengguna:Menampilkan form yang sudah terisi dari data yg sudah ada untuk diedit
+Pengguna->FormFgdActivity:btnSimpan.setOnClickListener()
+FormFgdActivity->FgdAdapter:editFgd()
+FgdAdapter->ModelFgd:setFgd(position)
+ModelFgd->FgdAdapter:Memperbarui Data
+FgdAdapter->MainActivity:Berhasil Memperbarui Data
+MainActivity->Pengguna: Menampilkan Toast Berhasil Memperbarui Data
+@enduml
